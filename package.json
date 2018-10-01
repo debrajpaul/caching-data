@@ -1,0 +1,37 @@
+{
+    "name": "caching-data",
+    "version": "1.0.0",
+    "main": "app.js",
+    "repository": "https://github.com/debrajpaul/caching-data.git",
+    "author": "Debraj <debraj.p@corp.tripborn.com>",
+    "license": "MIT",
+    "scripts": {
+        "test": "cross-env NODE_PATH=./src mocha ./src/tests/*.test.js --require @babel/register",
+        "debug": "cross-env DEBUG=app,app:* NODE_PATH=./src nodemon src/app.js --quiet --exec babel-node --presets=@babel/preset-env --inspect",
+        "build": "cross-env NODE_ENV=production babel ./src -d ./build",
+        "start": "cross-env NODE_ENV=production NODE_PATH=./build node ./build/app.js"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.0.0-beta.51",
+        "bloomfilter-redis": "^0.1.2",
+        "dotenv": "^6.0.0",
+        "express": "^4.16.3",
+        "mongodb": "^3.1.6",
+        "redis": "^2.8.0",
+        "cors": "^2.8.4",
+        "axios": "^0.18.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.0.0-beta.51",
+        "@babel/core": "^7.0.0-beta.51",
+        "@babel/node": "^7.0.0-beta.51",
+        "@babel/plugin-proposal-export-default": "^7.0.0-beta.32",
+        "@babel/plugin-proposal-export-default-from": "^7.0.0-rc.1",
+        "@babel/plugin-proposal-export-namespace-from": "^7.0.0-rc.1",
+        "@babel/plugin-proposal-optional-chaining": "^7.0.0-beta.51",
+        "@babel/plugin-transform-runtime": "^7.0.0-beta.51",
+        "@babel/preset-env": "^7.0.0-beta.51",
+        "nodemon": "^1.17.5",
+        "cross-env": "^5.2.0"
+    }
+}
